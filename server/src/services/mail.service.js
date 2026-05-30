@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 });
 
 transporter.verify().then(()=>{
-    console.log("Server is ready to send mails")
+    console.log("Server is ready to send mails");
 }).catch((err)=>{
     console.error("error connecting to mail server",err)
 })
