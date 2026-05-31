@@ -1,12 +1,11 @@
-async function errorHandler(err,req,res,next) {
-    const statusCode = err.statusCode || 500
-    const message = err.message || "Internal server error"
-    
-   return res.status(statusCode).json({
-        message:message,
-        success:false,
-        status:"failed"
-    })
-}
+const errorHandler = (err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
 
-export default errorHandler
+    res.status(statusCode).json({
+        success: false,
+        message: err.message || "Server Error",
+        err: err.errMessage || "Internal Server Error",
+    });
+};
+
+export default errorHandler;
